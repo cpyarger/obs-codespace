@@ -2,10 +2,10 @@
 	"folders": [
 		{
 			
-			"path": "~/OBS/obs-studio"			
+			"path": "/home/codespace/OBS/obs-studio"			
 		},
 		{
-			"path": "~/OBS/obs-studio/plugins/obs-midi"
+			"path": "/home/codespace/OBS/obs-studio/plugins/obs-midi"
 		}
 	],
 	"recommendations": [
