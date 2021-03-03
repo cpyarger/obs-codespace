@@ -2,10 +2,10 @@
 	"folders": [
 		{
 			
-			"path": "OBS/obs-studio"			
+			"path": "~/OBS/obs-studio"			
 		},
 		{
-			"path": "OBS/obs-studio/plugins/obs-midi"
+			"path": "~/OBS/obs-studio/plugins/obs-midi"
 		}
 	],
 	"recommendations": [
@@ -25,10 +25,10 @@
 				"name": "(gdb) Launch",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "OBS/obs-studio-portable/bin/64bit/obs",
+				"program": "${env:HOME}/OBS/obs-studio-portable/bin/64bit/obs",
 				"args": [],
 				"stopAtEntry": false,
-				"cwd": "OBS/obs-studio-portable/bin/64bit",
+				"cwd": "${env:HOME}/OBS/obs-studio-portable/bin/64bit",
 				"environment": [],
 				"externalConsole": false,
 				"MIMode": "gdb",
@@ -70,9 +70,12 @@
 			{
 				"label": "Prepare Ubuntu",
 				"type": "shell",
+				"options": {
+					"cwd": "${env:HOME}"
+				},
 				"command": [
-					"mkdir OBS;",
-					"cd OBS;",
+					"mkdir ${env:HOME}/OBS;",
+					"cd ${env:HOME}/OBS;",
 					"pkexec apt-get install build-essential checkinstall cmake git libmbedtls-dev libasound2-dev libavcodec-dev libavdevice-dev libavfilter-dev libavformat-dev libavutil-dev libcurl4-openssl-dev libfdk-aac-dev libfontconfig-dev libfreetype6-dev libgl1-mesa-dev libjack-jackd2-dev libjansson-dev libluajit-5.1-dev libpulse-dev libqt5x11extras5-dev libspeexdsp-dev libswresample-dev libswscale-dev libudev-dev libv4l-dev libvlc-dev libwayland-dev libx11-dev libx264-dev libxcb-shm0-dev libxcb-xinerama0-dev libxcomposite-dev libxinerama-dev pkg-config python3-dev qtbase5-dev qtbase5-private-dev libqt5svg5-dev swig libxcb-randr0-dev libxcb-xfixes0-dev libx11-xcb-dev libxcb1-dev libxss-dev libnss3-dev ;",
 					"wget https://cdn-fastly.obsproject.com/downloads/cef_binary_4280_linux64.tar.bz2 ;",
 					"tar -xjf ./cef_binary_4280_linux64.tar.bz2 ;",
@@ -86,8 +89,8 @@
 				"label": "grab obs-midi",
 				"type": "shell",
 				"command": [
-					"mkdir -p OBS",
-					"cd OBS/obs-studio/plugins",
+					"mkdir ${env:HOME}/OBS",
+					"cd ${env:HOME}/OBS/obs-studio/plugins",
 					"git clone --recursive https://github.com/cpyarger/obs-midi.git",
 					"echo 'add_subdirectory(obs-midi)'>>CMakeLists.txt"
 				]
